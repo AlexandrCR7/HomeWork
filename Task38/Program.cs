@@ -1,5 +1,6 @@
 ﻿
-int number_from_user = UserCreateArray("Введите число ");
+int number_from_user = UserCreateArray("Задайте размер массива ");
+
 
 int UserCreateArray(string numbers)
 {
@@ -12,15 +13,50 @@ int UserCreateArray(string numbers)
     return i;
 }
 
-void FillRandom(int[] numbers)
+
+void FillRandom(double[] numbers)
 {
     Random rnd = new Random();
     for(int i = 0; i < numbers.Length; i++)
-    numbers[i] = rnd.Next(1, 9);
+    //numbers[i] = Math.Round((rnd.NextDouble() * 100), 2);
+    numbers[i] = Math.Round(rnd.Next(-100, 101)*0.1, 2);
 }
 
 
-void PrintArray(int[] numbers)
+double MinimumNumber(double[] numbers)
+{
+    double min = numbers[0];
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        if(numbers[i] < min)
+        min = numbers[i];
+    }
+    return min;
+}
+
+
+double MAXimumNumber(double[] numbers)
+{
+    double max = numbers[0];
+    for(int i = 0; i < numbers.Length; i++)
+    {
+        if(numbers[i] > max)
+        max = numbers[i];
+    }
+    return max;
+}
+
+int CountNumbers(double[] numbers)
+{
+    int count = 0;
+    for(int i = 0; i < numbers.Length; i ++ )
+    {
+        count = count + 1;
+    }
+    return count;
+}
+
+void PrintArray(double[] numbers)
 {
     for(int i = 0; i < numbers.Length; i++)
     {
@@ -32,11 +68,17 @@ void PrintArray(int[] numbers)
 
 void FillArray ()
 {
-    int[] array = new int [number_from_user];
+    double[] array = new double [number_from_user];
     FillRandom(array);
     PrintArray(array);
+    CountNumbers(array);
+    System.Console.WriteLine($"Кол-во элементов в массиве {CountNumbers(array)}");
+    MinimumNumber(array);
+    System.Console.WriteLine($"Минимальное число: {MinimumNumber(array)}");
+    MAXimumNumber(array);
+    System.Console.WriteLine($"Максимальный число: {MAXimumNumber(array)}");
+    System.Console.WriteLine($"Рахница между min и max = {MAXimumNumber(array) - MinimumNumber(array)}");
 }
 
+
 FillArray();
-
-
