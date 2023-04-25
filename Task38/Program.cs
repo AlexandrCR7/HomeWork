@@ -76,8 +76,8 @@ void FillArray ()
     MinimumNumber(array);
     System.Console.WriteLine($"Минимальное число: {MinimumNumber(array)}");
     MAXimumNumber(array);
-    System.Console.WriteLine($"Максимальный число: {MAXimumNumber(array)}");
-    System.Console.WriteLine($"Рахница между min и max = {MAXimumNumber(array) - MinimumNumber(array)}");
+    System.Console.WriteLine($"Максимальное число: {MAXimumNumber(array)}");
+    System.Console.WriteLine($"Разница между min и max = {MAXimumNumber(array) - MinimumNumber(array)}");
 }
 
 
